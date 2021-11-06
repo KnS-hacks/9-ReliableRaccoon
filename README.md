@@ -1,3 +1,4 @@
 # 9-ReliableRaccoon
 9팀 든든 너구리 (Reliable Raccoon)
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d29ea0e2-6897-4970-ac44-4b4f679ac097/Untitled.png)
+![image](https://user-images.githubusercontent.com/65885185/140614570-cf8cbc03-34b9-4086-8959-50c30ab8f34c.png)
+
