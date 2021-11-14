@@ -1,0 +1,69 @@
+{% load static %}
+<style>
+    #applybutton{
+        background-color: #2D43D4;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        width: 60px;
+        height: 25px;
+        border-radius: 10px;
+        padding-top: 10px;
+        /*float: right;*/
+    }
+    #listbutton {
+        background-color: #ffffff;
+        color: #2D43D4;
+        font-size: 12px;
+        text-align: center;
+        width: 60px;
+        height: 25px;
+        border-radius: 10px;
+        border: solid 1px #2D43D4;
+        padding-top: 10px;
+        /*float: right;*/
+        margin-left: 10px;
+    }
+</style>
+<div id="allpost">
+    <div id="post_title">
+        글 조회 🌞 🌤️ ⛈️ 🌨️ 😀 😰 😐
+    </div>
+
+    <div id="postbody">
+        <right>
+        <div id="post">
+            <table class="table" type="table">
+                <tr>
+                    <td>제목 : </td>
+                </tr>
+                <tr>
+                    <td>
+                        날씨 : 🌞
+                    </td>
+                    <td>
+                        기분 : 😀
+                    </td>
+                    <td>
+                        <a href=" ~ ">
+                            <div id="applybutton" type="button">
+                                수정하기
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href=" ~ ">
+                            <div id="applybutton" type="button">
+                                삭제하기
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <img src="{% static 'image/test.jpg'%}" height="160px" width="200px" alt="...">
+            <br><br>
+            <textarea id="story" name="story" rows="30" cols="100" readonly="readonly" disabled style="resize: none;" >내용이 들어갑니다
+            </textarea>
+</div>
+</div>
+</div>
