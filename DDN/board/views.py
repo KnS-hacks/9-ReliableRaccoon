@@ -4,11 +4,14 @@ from .models import board_model #게시글 DB
 
 def boardlist(request) : #날짜별로 분류
     selected = board_model.objects.filter(write_day__range=["2021-11-14", "2021-11-15"])
+    context = {'selected':selected}
     print(selected)
-    return render(request, "boardlist.html")
+    return render(request, "boardlist.html", context)
 
-def boardview(request) : #일기 보기
-    return render(request, "boardview.html")
+def boardview(request, board_id) : #일기 보기    
+    content = board_model.objects.get(id = board_id)
+    context = {'content': content}
+    return render(request, "boardview.html", context)
 
 def boardwrite(request) : #일기 작성
     if request.method == "POST":
@@ -22,7 +25,7 @@ def boardwrite(request) : #일기 작성
             new_writer.auto_pick = False
         else :
             new_writer.auto_pick = True
-        new_writer.result_emotion = user_pick
+        new_writer.result_emotion = user_pick       
         new_writer.body = request.POST['body']
         if request.FILES :
             new_writer.image = request.FILES['image']
@@ -34,6 +37,11 @@ def boardwrite(request) : #일기 작성
         return redirect('boardlist')    
     return render(request,"boardwrite.html")
 
+
+def boarddelete(request, board_id):
+    content = board_model.objects.get(id = board_id)
+    content.delete()
+    return redirect('/board/boardlist')
 
 # def update(request):
 #     new_writer = board_model.objects.get(pk=request.POST['num'])

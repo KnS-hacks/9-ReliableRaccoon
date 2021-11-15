@@ -18,7 +18,8 @@ from .views import *
 
 urlpatterns = [
     path('boardlist/', boardlist, name = "boardlist"),
-    path('boardview/', boardview, name = "boardview"),
-    path('boardwrite/', boardwrite, name = "boardwrite"),
+    path('boardview/<int:board_id>/', boardview, name = "boardview"),
+    path('boardwrite/', boardwrite, name = "boardwrite"),    
+    path('boardview/<int:board_id>/delete',boarddelete, name = "boarddelete")
     # path('create/',create, name="create"),
 ]

@@ -35,7 +35,7 @@
         <div id="post">
             <table class="table" type="table">
                 <tr>
-                    <td>제목 : </td>
+                    <td>제목 : {{content.title}} </td>
                 </tr>
                 <tr>
                     <td>
@@ -53,7 +53,7 @@
                     </td>
                     <td>
                         <a href=" ~ ">
-                            <div id="applybutton" type="button">
+                            <div id="applybutton" type="button" onclick = "location.href='/board/boardview/{{content.id}}/delete/'">                                
                                 삭제하기
                             </div>
                         </a>
@@ -62,7 +62,7 @@
             </table>
             <img src="{% static 'image/test.jpg'%}" height="160px" width="200px" alt="...">
             <br><br>
-            <textarea id="story" name="story" rows="30" cols="100" readonly="readonly" disabled style="resize: none;" >내용이 들어갑니다
+            <textarea id="story" name="story" rows="30" cols="100" readonly="readonly" disabled style="resize: none;" >{{content.body}}
             </textarea>
 </div>
 </div>
