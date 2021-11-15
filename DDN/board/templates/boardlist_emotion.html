@@ -1,0 +1,17 @@
+{% if selected %}
+    <ul>
+    {% for board_data in selected %}
+        <li>{{board_data.result_emotion}}
+            <a href="/board/boardview/{{board_data.id}}/">              
+            </br>
+            글제목: {{board_data.title}}
+        </a>
+        </br>
+            작성자: {{board_data.author}}
+        </br>        
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>게시글이 없습니다.</p>
+{% endif %}

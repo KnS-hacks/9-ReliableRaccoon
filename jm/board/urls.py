@@ -17,11 +17,9 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('boardlist/', boardlist, name = "boardlist"),    
+    path('boardlist/', boardlist, name = "boardlist"),
+    path('boardview/', boardview, name = "boardview"),
     path('boardwrite/', boardwrite, name = "boardwrite"),
-    path('boardview/<int:board_id>/delete',boarddelete, name = "boarddelete"),
-    path('boardrewrite/<int:board_id>/',boardrewrite, name = "boardrewrite"),
-    path('boardview/<int:num>/', boardview, name = "boardview"),
     path('date_selecter_temp/', date_selecter_temp, name = "date_selecter_temp"),
-    
+    # path('create/',create, name="create"),
 ]
