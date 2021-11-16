@@ -22,6 +22,7 @@ body_ {
     background-color: #FBDBD5;
 }
 
+
 content {
     position:absolute;
     width: 1000px;
@@ -50,13 +51,10 @@ content {
     border-radius: 100%;
     border: solid 1px #707070;
     background-color: #fff;
+    background-image: url('./profile.png');
+    background-position: center;
+    background-size: 95px 95px;
   }
-
-.profile  {
-    width: 80px;
-    height: 80px;
-    background-color: #707070;
-}
 
 .logo {
     position: absolute;
@@ -82,13 +80,26 @@ content {
     background-color: #fff;
 }
 
+#search_button{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 4%;
+    left:71%;
+    border: 0;
+    background-image: url('./glasses.png');
+    background-position: center;
+    background-size: 30px 30px;
+    background-color: white;
+}
+
 .racoon {
     width: 150px;
     height: 73px;
-    margin: 0 96px 28px 50px;
-    -webkit-text-stroke: 1px #fff;
-    font-family: BMDoHyeon;
-    font-size: 20px;
+    margin: 0 96px 50px 50px;
+    -webkit-text-stroke: 0px #fff;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 30px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -98,9 +109,10 @@ content {
     color: #fff;
   }
   
-  .racoon .text-style-1 {
-    font-size: 40px;
-  }
+.racoon .text-style-1 {
+    font-size: 50px;
+    font-family: 'Black Han Sans', sans-serif;
+}
 
   
   body {
