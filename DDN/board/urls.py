@@ -19,9 +19,8 @@ from .views import *
 urlpatterns = [
     path('boardlist/', boardlist, name = "boardlist"),    
     path('boardwrite/', boardwrite, name = "boardwrite"),
-    path('boardview/<int:board_id>/delete',boarddelete, name = "boarddelete"),
+    path('boardDelete/<int:board_id>', boardDelete, name = "boardDelete"),
     path('boardrewrite/<int:board_id>/',boardrewrite, name = "boardrewrite"),
     path('boardview/<int:num>/', boardview, name = "boardview"),
-    path('date_selecter_temp/', date_selecter_temp, name = "date_selecter_temp"),
-    
+    path('date_selecter_temp/', date_selecter_temp, name = "date_selecter_temp"),    
 ]

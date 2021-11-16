@@ -50,6 +50,7 @@ def date_selecter_temp(request) : #날짜 선택 (임시확인)
     print(date_list)
     return render(request, "date_selecter_temp.html", {'date_list':date_list})
 
+
 def boardwrite(request) : #일기 작성
     if request.method == "POST":
         result = request.POST
@@ -74,7 +75,7 @@ def boardwrite(request) : #일기 작성
         return redirect('date_selecter_temp')    
     return render(request,"boardwrite.html")
 
-def boardrewrite(request, board_id) : #일기 작성
+def boardrewrite(request, board_id) : #일기 수정
     re_writer = board_model.objects.get(id = board_id)    
     if request.method == "POST":        
         re_writer.title = request.POST['title']
@@ -97,8 +98,9 @@ def boardrewrite(request, board_id) : #일기 작성
         return redirect('date_selecter_temp')    
     return render(request,"boardrewrite.html")
 
-def boarddelete(request, board_id):
-    content = board_model.objects.get(id = board_id)
+def boardDelete(request, board_id):
+    content = board_model.objects.get(id = board_id)    
     content.delete()
-    return redirect('/board/boardlist')
+    return redirect('date_selecter_temp')
+
 
