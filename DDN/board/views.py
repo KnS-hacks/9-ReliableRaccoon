@@ -39,16 +39,7 @@ def boardview(request, num) : #일기 보기
 
 
 def date_selecter_temp(request) : #날짜 선택 (임시확인) 
-    All_model = board_model.objects.all()
-    date_list = []
-    for tmp in All_model :
-        string = str(tmp.write_day.year) + "-" + str(tmp.write_day.month) + "-" + str(tmp.write_day.day)
-        if(string in date_list) :
-            continue
-        else :
-            date_list.append(string)
-    print(date_list)
-    return render(request, "date_selecter_temp.html", {'date_list':date_list})
+    return render(request, "date_selecter_temp.html")
 
 
 def boardwrite(request) : #일기 작성
