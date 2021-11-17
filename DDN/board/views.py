@@ -1,6 +1,13 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.utils import timezone  #글 작성시간을 자동으로 가져오는 용도
 from .models import board_model #게시글 DB
+from azure.core.credentials import AzureKeyCredential
+from azure.ai.textanalytics import TextAnalyticsClient
+# pip install azure-ai-textanalytics==5.1.0 
+# azure 설치
+
+SECRET_KEY = 'ed2ec6a21ae24e4cb1559d22a6c8142c'
+END_POINT = 'https://hyun0310.cognitiveservices.azure.com/'
 
 def boardlist(request) : #날짜별로 분류
     date = request.GET.get('date') #2021-11-15
@@ -50,12 +57,15 @@ def boardwrite(request) : #일기 작성
         new_writer.author = "든든너구리"
         new_writer.weather= request.POST['weather']
         user_pick = request.POST['emotion']
+        new_writer.body = request.POST['body']
         if(user_pick != "자동"):
             new_writer.auto_pick = False
+            new_writer.result_emotion = user_pick
         else :
             new_writer.auto_pick = True
-        new_writer.result_emotion = user_pick
-        new_writer.body = request.POST['body']
+            sentences=new_writer.body.split('.')
+            new_writer.api_emotion =analyze_text(sentences, new_writer.id)
+            new_writer.result_emotion =analyze_text(sentences, new_writer.id)
         if request.FILES :
             new_writer.image = request.FILES['image']
         new_writer.views = 0
@@ -73,12 +83,15 @@ def boardrewrite(request, board_id) : #일기 수정
         re_writer.author = "든든너구리"
         re_writer.weather= request.POST['weather']
         user_pick = request.POST['emotion']
+        re_writer.body = request.POST['body']
         if(user_pick != "자동"):
             re_writer.auto_pick = False
+            re_writer.result_emotion = user_pick
         else :
             re_writer.auto_pick = True
-        re_writer.result_emotion = user_pick
-        re_writer.body = request.POST['body']
+            sentences=re_writer.body.split('.')
+            re_writer.api_emotion =analyze_text(sentences, re_writer.id)
+            re_writer.result_emotion =analyze_text(sentences, re_writer.id)
         if request.FILES :
             re_writer.image = request.FILES['image']
         re_writer.views = 0
@@ -95,3 +108,80 @@ def boardDelete(request, board_id):
     return redirect('date_selecter_temp')
 
 
+def analyze_text(documents, board_id):
+    endpoint = END_POINT
+    key = SECRET_KEY
+    today = board_model.objects.get(id = board_id)  
+    del documents[len(documents)-1]
+    text_analytics_client = TextAnalyticsClient(endpoint, AzureKeyCredential(key))
+    results = text_analytics_client.analyze_sentiment(documents, language='ko')
+    total_emotion_positive =0
+    total_emotion_negative =0
+    total_emotion_neutral =0
+    last_emotion =0
+    now_emotion =0
+    for index,result in enumerate(results):
+        print(documents[index])
+        if result=='':
+            break
+        else:
+            print('positive :',result.confidence_scores.positive)
+            print('negative :',result.confidence_scores.negative)
+            print('neutral :',result.confidence_scores.neutral)
+            #이전 문장 감정 판별, 긍정적이면 1 부정적이면 -1 모호하면 0
+            if results[index-1].confidence_scores.positive > results[index-1].confidence_scores.negative and results[index-1].confidence_scores.positive > results[index-1].confidence_scores.neutral:
+                last_emotion = 1
+            elif results[index-1].confidence_scores.negative > results[index-1].confidence_scores.neutral: 
+                last_emotion = -1
+            else:
+                last_emotion = 0
+            #현재 문장 감정 판별, 긍정적이면 1 부정적이면 -1 모호하면 0
+            if results[index].confidence_scores.positive > results[index].confidence_scores.negative and results[index].confidence_scores.positive > results[index].confidence_scores.neutral:
+                now_emotion = 1
+            elif results[index].confidence_scores.negative > results[index].confidence_scores.neutral: 
+                now_emotion = -1
+            else:
+                now_emotion = 0
+            # 현재의 문장이 긍정적이고 이전이 부정적이면 긍정적 점수 X 1.3
+            if now_emotion > last_emotion:
+                total_emotion_positive +=(result.confidence_scores.positive*1.3)
+                total_emotion_negative+=result.confidence_scores.negative
+                total_emotion_neutral +=result.confidence_scores.neutral
+            # 현재의 문장이 부정적이고 이전이 긍정적이면 부정적 점수 X 1.3
+            elif now_emotion < last_emotion:
+                total_emotion_positive +=result.confidence_scores.positive
+                total_emotion_negative+=(result.confidence_scores.negative*1.3)
+                total_emotion_neutral +=result.confidence_scores.neutral
+            # 서로 같으면 그대로 더해줌
+            else:
+                total_emotion_positive +=result.confidence_scores.positive
+                total_emotion_negative+=result.confidence_scores.negative
+                total_emotion_neutral +=result.confidence_scores.neutral
+
+
+    total_emotion_positive = total_emotion_positive/len(results)
+    total_emotion_negative = total_emotion_negative/len(results)
+    total_emotion_neutral = total_emotion_neutral/len(results)
+
+    # print('오늘의 평균 긍정점수 :',total_emotion_positive)
+    # print('오늘의 평균 부정점수 :',total_emotion_negative)
+    # print('오늘의 평균 중립점수 :',total_emotion_neutral)
+    total_emotion = (-total_emotion_negative if total_emotion_negative>total_emotion_positive or total_emotion_negative==total_emotion_positive else total_emotion_positive)
+    # print(total_emotion)
+    
+    # 오늘의 감정 분석 결과 도출
+    if total_emotion > total_emotion_neutral or total_emotion == total_emotion_neutral:
+        total_emotion = total_emotion/(total_emotion_negative+(total_emotion_neutral//5)+total_emotion_positive)
+    else :
+        total_emotion = total_emotion/(total_emotion_negative+total_emotion_positive)
+    # print(total_emotion,'종합')
+    # 오늘의 감정 분석 결과를 DB에 저장
+    if total_emotion >0:
+        total_emotion = '행복'
+    elif total_emotion <0:
+        total_emotion = '우울'
+    else:
+        total_emotion = '쏘쏘'
+    print(total_emotion)
+    return total_emotion
+    
