@@ -30,22 +30,34 @@
                 <div class="navigaton_bar_2">
                 </div>
                 
+                
+
+                {% if selected %}
                 <content>
                     <span class="boardlist">
                         일기목록
                     </span>        
                     <div class="line"></div>
-
-                {% if selected %}
-                <ul>
+                    <ul>
                     {% for board_data in selected %}            
                     <li>
-                        <button id="list_button2" href ="/board/boardview/{{board_data.id}}/" >
+                        <button id="list_button2" href ="/board/boardview/{{board_data.id}}/" onclick = "location.href  = '/board/boardview/{{board_data.id}}/'" >
                             {{board_data.title}} <!---글 제목-->
                         </button>                        
                     </li>
-                    {% endfor %}
+                    {% endfor %}                
                 </ul>
+                {% else %}
+                <content>
+                    <span class="boardlist">
+                        일기가 없구리...
+                    </span>        
+                    <div class="line"></div>
+                    <button id="write_button" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->
+                        <span class="text_write">
+                            일기 작성하기
+                        </span>
+                    </button>
                 {% endif %}
                 </content>  
                 <div class="logo"></div>
