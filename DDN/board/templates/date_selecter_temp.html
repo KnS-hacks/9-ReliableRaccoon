@@ -20,18 +20,21 @@
                    console.log(month) 
                    console.log(day) 
                    var data = '/board/boardlist/?date="+2021+"-"+month+"-"+day+"'
-                   
+                   var write_onclick = "onClick=" + "\"location.href='/board/boardlist/?date=2021-"+ month +"-"+day +"\'\""
+
+                   //alert(write_onclick );
+
                    // console.log(data)
                    //document.write(data)
                    if(((_31.indexOf(month) != -1)&& (day == 31)) || ((_31.indexOf(month) == -1) && (day == 30))){                        
                         if (month_flag == false){                                
-                                document.write('<li class="day other-month"><div class="date" onclick = "click_action(dsadsa)" >'+ day + '</div></li>');                                
+                                document.write('<li class="day other-month" ' + write_onclick +' ><div class="date" ' + write_onclick +' >'+ day + '</div></li>');                                
                                 month++
                                 day = 1
                                 month_flag = !month_flag;                                
                             }                            
                         else{                        
-                            document.write('<li class="day"><div class="date" onclick = "click_action(dsadsa)">' + day + '</div></li>');                                
+                            document.write('<li class="day" ' + write_onclick +' ><div class="date" ' + write_onclick +' >' + day + '</div></li>');                                
                                 month++
                                 day = 1
                                 month_flag = !month_flag;                                
@@ -39,12 +42,12 @@
                     }                   
                      else{                        
                          if (month_flag == false){                           
-                                 document.write('<li class="day other-month"><div class="date"onclck = location.href=/board/boardlist/?date=2021' + '-' + month + '-' + day +   '>'+ day+ '</div></li>');
+                                 document.write('<li class="day other-month"  ' + write_onclick +' ><div class="date" ' + write_onclick +' >'+ day+ '</div></li>');
                                  //document.write('<div onclick =' + click_action()+'>aaaa</div>')
                                  day += 1;                                 
                          }
                          else{                                                        
-                             document.write('<li class="day"><div class="date" >' + day + '</div></li>');
+                             document.write('<li class="day"  ' + write_onclick +' ><div class="date" ' + write_onclick +' >' + day + '</div></li>');
                              day += 1;                                        
                          }                                              
                     }
@@ -141,4 +144,5 @@
         </main>
         
     </body>
+</body>
 </html>
