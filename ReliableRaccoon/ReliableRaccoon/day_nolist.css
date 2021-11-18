@@ -27,11 +27,14 @@
 }
 
 #write_button {
+    position:absolute;
     width: 20vw;
-    height: 4vh;
-    margin: 290px 0 0 380px;
-    padding:  25px 50px 31px;
-    border-radius: 10px;
+    height: 7vh;
+    top: 40vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 0.5vw;
     border: 0;
     
     background-color: #F8CBC2;
@@ -41,7 +44,7 @@
     width: 10vw;
     height: 10vh;
     font-family: 'Nanum Myeongjo', serif;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
