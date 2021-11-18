@@ -1,0 +1,52 @@
+.dayNoList {
+    position: absolute;
+    width: 10vw;
+    height: 10vh;
+    top: 2vh;
+    left: 1vw;
+    -webkit-text-stroke: 1px #000;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 5px;
+    text-align: left;
+    color: #000;
+}
+
+.line  {
+    position: absolute;
+    width: 10vw;
+    height: 0;
+    top: 7vh;
+    left: 1vh;
+    border: solid 1.5px #707070;
+    background-color: #707070;
+}
+
+#write_button {
+    width: 20vw;
+    height: 4vh;
+    margin: 290px 0 0 380px;
+    padding:  25px 50px 31px;
+    border-radius: 10px;
+    border: 0;
+    
+    background-color: #F8CBC2;
+}
+
+.text_write {
+    width: 10vw;
+    height: 10vh;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}
