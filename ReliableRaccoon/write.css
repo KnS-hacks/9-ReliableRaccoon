@@ -34,11 +34,6 @@
     top: 3vh;
 }
 
-#file_uploader_button {
-    width: 10vw;
-    height: 4vh;
-    margin: 4.5vh 0vw 0vh 30.9vw;
-}
 .emotion{
     position: absolute;
     left: 55vw;
@@ -66,4 +61,10 @@
     margin:auto;
     border: solid 1px #707070;
     background-color: rgba(46, 46, 46, 0.15);
+}
+
+#file_uploader_button {
+    width: 10vw;
+    height: 4vh;
+    margin: 4.5vh 0vw 0vh 30.9vw;
 }
