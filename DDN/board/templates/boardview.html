@@ -1,5 +1,14 @@
 {% load static %}
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='view.css'> -->
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/base.css' %}">
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/view.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <title>DAY_LIST</title>
 <style>
     #applybutton{
         background-color: #2D43D4;
@@ -11,6 +20,9 @@
         border-radius: 10px;
         padding-top: 10px;
         /*float: right;*/
+    }
+    .modify {
+        margin-left: 750px;
     }
     #listbutton {
         background-color: #ffffff;
@@ -24,7 +36,9 @@
         padding-top: 10px;
         /*float: right;*/
         margin-left: 10px;
+        
     }
+    
 </style>
 
 <script>
@@ -36,51 +50,91 @@
 </head>
 
 <body>
-<div id="allpost">
-    <div id="post_title">
-        글 조회 🌞 🌤️ ⛈️ 🌨️ 😀 😰 😐
-    </div>
-
-    <div id="postbody">
-        <right>
-        <div id="post">
-            <table class="table" type="table">
-                <tr>
-                    <td>제목 : {{selected.title}}</td>
-                </tr>
-                <tr>
-                    <td>
-                        날씨 : {{weather}}
-                    </td>
-                    <td>
-                        기분 : {{emotion}}
-                    </td>
-                    <td>
-                        <a href="/board/boardrewrite/{{selected.id}}">
-                            <div id="applybutton" type="button">
-                                수정하기
+    <main>
+        <span class="racoon">
+            든든
+            <span class="text-style-1">너구리</span>
+        </span>
+        <input id="search" type="text" placeholder="검색"/>
+        <button id="search_button"></button>
+        <body_>
+            <div class="navigation_bar_1">
+                <div class="profile_circle"></div>
+                <div class="navigation_bar_1_box">
+                    <span class="author">RACOON</span>
+                </div>
+            </div>
+            <div class="navigaton_bar_2">
+                <div class="navigation_bar_2_box"></div>
+            </div>
+            <content>
+                <div class="diary_content">
+                    <div id="allpost">
+                        <!-- <div id="post_title">
+                            글 조회 🌞 🌤️ ⛈️ 🌨️ 😀 😰 😐
+                        </div> -->
+                        <div id="postbody">
+                            <right>
+                            <div id="post">
+                                <table class="table" type="table">
+                                    <tr>
+                                            <span class="boardlist">
+                                                {{selected.title}}
+                                            </span>
+                                    </tr>
+                                    <tr>
+                                        <td id="weatherAndfeel">
+                                            날씨 : {{weather}} &nbsp;
+                                            기분 : {{emotion}}
+                                        </td>
+                                        <div id="buttons">
+                                        <td>
+                                            <a href="/board/boardrewrite/{{selected.id}}">
+                                                <div id="applybutton" type="button" class="modify">
+                                                    수정하기
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="/board/boardDelete/{{selected.id}}">
+                                                <div id="applybutton" type="button">
+                                                    삭제하기
+                                                </div>
+                                            </a>
+                                        </td>
+                                        </div>
+                                    </tr>
+                                </table>
+                                </div>
+                            </right>
+                        </div>
+                        <div id='flexdiv'>
+                            <script>
+                                var tmp = "{{image_url}}";
+                                img_checker(tmp);
+                            </script>
+                
+                            <br><br>
+                            {% if image_url %}
+                            <textarea id="story" name="story" rows="13" cols="100" readonly="readonly" disabled style="resize: none;" >{{selected.body}}
+                            </textarea>
+                            {% else %}
+                            <textarea id="story" name="story" rows="22" cols="100" readonly="readonly" disabled style="resize: none;" >{{selected.body}}
+                            </textarea>
+                            {% endif %}
+                        </div>
+                            
+                            <div id="emotionbutton" type="button">
+                                공감하기
                             </div>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/board/boardDelete/{{selected.id}}">
-                            <div id="applybutton" type="button">
-                                삭제하기
-                            </div>
-                        </a>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </content>  
+            <div class="logo"></div>
+        </body_>
+    </main>
 
-            <script>
-                var tmp = "{{image_url}}";
-                img_checker(tmp);
-            </script>
 
-            <br><br>
-            <textarea id="story" name="story" rows="30" cols="100" readonly="readonly" disabled style="resize: none;" >{{selected.body}}
-            </textarea>
-</div>
-</div>
-</div>
 </body>
