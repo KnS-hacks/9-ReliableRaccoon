@@ -23,6 +23,6 @@ class board_model(models.Model):
 
     modify_day = models.DateField(blank=True,null=True,)  #수정시간
 
-    views = models.IntegerField(blank=True,null=True,)  #조회수
+    views = models.IntegerField(blank=True,null=True,default=0)  #공감수
 
     body = models.TextField(blank=True,null=True,) #일기 내용

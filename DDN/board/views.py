@@ -4,6 +4,9 @@ from .models import board_model #게시글 DB
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
 import random
+from django.http.response import JsonResponse
+from django.http import HttpResponse
+import json
 # pip install azure-ai-textanalytics==5.1.0 
 # azure 설치
 
@@ -22,6 +25,18 @@ def boardlist_emotion(request): #감정에 따른 분류
 
 
 def boardview(request, num) : #일기 보기
+    
+
+    if request.method=='POST' and request.is_ajax():
+        try:
+            pk = request.POST.get('pk', None)
+            obj=get_object_or_404(board_model, pk=pk)
+            obj.views += int(request.POST.get('views'))
+            obj.save()
+            context = {'count':obj.views}
+            return HttpResponse(json.dumps(context), content_type="application/json")
+        except board_model.DoesNotExist:
+            return JsonResponse({'status':'Fail', 'msg': 'Object does not exist'})
     # num = request.GET.get('num')
     selected = board_model.objects.get(id=num) # pk 는 primaty key (num)
     context = {'selected': selected}
