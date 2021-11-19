@@ -129,7 +129,12 @@ def boardrewrite(request, board_id) : #일기 수정
         re_writer.modify_day = timezone.now()
         re_writer.save()
         return redirect('date_selecter_temp')    
-    return render(request,"boardrewrite.html")
+    re_writer = board_model.objects.get(id = board_id) 
+    title = re_writer.title
+    emotion = re_writer.result_emotion
+    weather = re_writer.weather
+    text = re_writer.body
+    return render(request,"boardrewrite.html",{"title":title , "emotion":emotion, "weather":weather, "text":text})
 
 def boardDelete(request, board_id):
     content = board_model.objects.get(id = board_id)    
