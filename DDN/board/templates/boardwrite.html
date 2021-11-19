@@ -7,46 +7,79 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/boardwrite.css' %}">
-        <title>Document</title>
+        <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/base.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+        <title>WRITE</title>
+
+        <script>
+        function check_input() {
+            if (!document.make_board.title.value)
+            {
+                alert("글 제목을 입력해주세요");
+                document.make_board.title.focus();
+                return false;
+            }
+            else{
+                document.make_board.submit();
+                window.onlocation.href = 'http://127.0.0.1:8000/board/boardlist/'
+            }
+         }
+      </script>
+
     </head>
-    <body>
-        
-        
-        <main>
+
+
+    <main>
             <span class="racoon">
                 든든
                 <span class="text-style-1">너구리</span>
             </span>
             <input id="search" type="text" placeholder="검색"/>
+            <button id="search_button"></button>
             <body_>
                 <div class="navigation_bar_1">
                     <div class="profile_circle"></div>
+                    <div class="navigation_bar_1_box">
+                        <span class="author">RACOON</span>
+                    </div>
                 </div>
                 <div class="navigaton_bar_2">
+                    <div class="navigation_bar_2_box">
+                    </div>
                 </div>
+                 <form name="make_board" id="make_board" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <content>
+                
+                    <div class="title_group">
+                        <div class="title"></div>
+                        <input id="title" type="text" name = "title" placeholder="제목"/>
+                        <div class="weather">
+                            <input type="radio" id="맑음" name="weather" value="맑음"checked><label for="맑음">🌞</label>
+                            <input type="radio" id="흐림" name="weather" value="흐림"><label for="흐림">🌤️</label>
+                            <input type="radio" id="비" name="weather" value="비"><label for="비">⛈️</label>
+                            <input type="radio" id="눈" name="weather" value="눈"><label for="눈">🌨️</label>
+                        </div>
+                        <div class="emotion">
+                            <input type="radio" id="행복" name="emotion" value="행복"checked><label for="행복">😀</label>
+                            <input type="radio" id="우울" name="emotion" value="우울"><label for="우울">😰</label>
+                            <input type="radio" id="쏘쏘" name="emotion" value="쏘쏘"><label for="쏘쏘">😐</label>
+                            <input type="radio" id="자동" name="emotion" value="자동"><label for="자동">자동</label>
+                        </div>
+                        <div class="tools"></div>
+                    </div>
+                    <div class="file_uploder">
+                        <input type = "file" name = "image">
+                    </div> 
+                    <textarea id="diary_content" name="body" cols="40" rows="50"></textarea>
+                    </form>
+                    <div class="buttons">
+                        <button id="delete" onclick = "history.back()">삭제하기</button>
+                        <button id="upload" onclick = "check_input()">게시하기</button>
+                    </div>
                 </content> 
-                <div class="file_uploder"></div> 
-                <div class="title_group">
-                    <div class="title"></div>
-                    <input id="title" type="text" placeholder="제목"/>
-                    <div class="weather">
-                        <input type="radio" id="맑음" name="weather" value="맑음"checked><label for="맑음">🌞</label>
-                        <input type="radio" id="흐림" name="weather" value="흐림"><label for="흐림">🌤️</label>
-                        <input type="radio" id="비" name="weather" value="비"><label for="비">⛈️</label>
-                        <input type="radio" id="눈" name="weather" value="눈"><label for="눈">🌨️</label>
-                    </div>
-                    <div class="emotion">
-                        <input type="radio" id="행복" name="emotion" value="행복"checked><label for="행복">😀</label>
-                        <input type="radio" id="우울" name="emotion" value="우울"><label for="우울">😰</label>
-                        <input type="radio" id="쏘쏘" name="emotion" value="쏘쏘"><label for="쏘쏘">😐</label>
-                        <input type="radio" id="자동" name="emotion" value="자동"><label for="자동">자동구리</label>
-                    </div>
-                    <div class = "content" type = "text" placeholder = "내용"></div>
-                        <!--<input id = "content" type="text" placeholder = "내용"/> -->
-                    
-                    <div class="tools"></div>
-                </div>
                 <div class="logo"></div>
             </body_>
             
