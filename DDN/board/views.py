@@ -53,7 +53,8 @@ def boardview(request, num) : #일기 보기
 
 def date_selecter_temp(request) : #날짜 선택 (임시확인)
     recent_board = board_model.objects.order_by('-pk')
-    if len(recent_board) > 2 and suggest_board(recent_board[0].id) ==3:
+    recent_board = recent_board[:3]
+    if len(recent_board) > 2 and suggest_board(recent_board) ==3:
         high_emotion_board = list(board_model.objects.filter(result_emotion='행복'))
         random_num = random.randrange(0,len(high_emotion_board))
         return render(request, "date_selecter_temp.html", {'high_emotion_board':high_emotion_board[random_num].id})
@@ -199,8 +200,8 @@ def api_to_result(total_emotion):
 
 def suggest_board(board_id):
     depress_count=0
-    for index in range(board_id-2, board_id+1):
-        today = board_model.objects.get(id = index)
+    for index in board_id:
+        today = index
         try: 
             if float(today.api_emotion_score) < 0 :
                 depress_count+=1
