@@ -1,17 +1,69 @@
-{% if selected %}
-    <ul>
-    {% for board_data in selected %}
-        <li>{{board_data.result_emotion}}
-            <a href="/board/boardview/{{board_data.id}}/">              
-            </br>
-            글제목: {{board_data.title}}
-        </a>
-        </br>
-            작성자: {{board_data.author}}
-        </br>        
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>게시글이 없습니다.</p>
-{% endif %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/boardlist.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+        <title>Document</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        
+        
+        <main>
+            <span class="racoon">
+                든든
+                <span class="text-style-1">너구리</span>
+            </span>
+            <input id="search" type="text" placeholder="검색"/>
+            <body_>
+                <div class="navigation_bar_1">
+                    <div class="profile_circle"></div>
+                </div>
+                <div class="navigaton_bar_2">
+                </div>
+                
+                
+
+                {% if selected %}
+                <content>
+                    <span class="boardlist">
+                        일기목록
+                    </span>        
+                    <div class="line"></div>
+                    <ul>
+                    {% for board_data in selected %}            
+                    <li>
+                        <button id="list_button2" href ="/board/boardview/{{board_data.id}}/" onclick = "location.href  = '/board/boardview/{{board_data.id}}/'" >
+                            {{board_data.title}} {{board_data.result_emotion}}<!---글 제목-->
+                        </button>                        
+                    </li>
+                    {% endfor %}                
+                </ul>
+                {% else %}
+                <content>
+                    <span class="boardlist">
+                        일기가 없구리...
+                    </span>        
+                    <div class="line"></div>
+                    <button id="write_button" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->
+                        <span class="text_write">
+                            일기 작성하기
+                        </span>
+                    </button>
+                {% endif %}
+                </content>  
+                <div class="logo"></div>
+            </body_>
+            
+        </main>
+        
+    </body>
+</html>

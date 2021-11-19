@@ -124,7 +124,7 @@ content {
     top: 4vh;
     right: 26vw;
     border: 0;
-    background-image: url('./glasses.png');
+    background-image: url('/static/image/glasses.png');
     background-position: center;
     background-size: 30px 30px;
     background-color: white;

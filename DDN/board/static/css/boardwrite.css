@@ -1,0 +1,70 @@
+.title_group {
+    position:absolute;
+    width: 72vw;
+    height: 15.5vh;
+    left: 0;
+    right: 0;
+    top: 0vh;
+    margin: auto;
+    border: solid 1px #707070;
+    background-color: #f29886;
+}
+
+.tools {
+    width: 70vw;
+    height: 5vh;
+    margin: 10px 3px 3px 10px;
+    border-radius: 13px;
+    border: solid 1px #707070;
+    background-color: #fff;
+}
+
+#title {
+    width: 37vw;
+    height: 5vh;
+    margin: 10px 0px 0px 10px;
+    border-radius: 13px;
+    border: solid 1px #707070;
+    background-color: #fff;
+}
+
+.weather{
+    position: absolute;
+    left: 40vw;
+    top: 3vh;
+}
+
+.emotion{
+    position: absolute;
+    left: 55vw;
+    top: 3vh;
+}
+
+#diary_content {
+    width: 69.7vw;
+    height: 46vh;
+    margin: 18vh 1vw 20vh 1vw;
+    border: solid 1px #707070
+}
+
+.buttons {
+    margin: 0 0 0 60vw;
+}
+
+.file_uploder {
+    position:absolute;
+    width: 71.8vw;
+    height: 13vh;
+    left:0;
+    right: 0;
+    bottom: 0vh;
+    margin:auto;
+    border: solid 1px #707070;
+    background-color: rgba(46, 46, 46, 0.15);
+}
+
+#file_uploader_button {
+    width: 10vw;
+    height: 4vh;
+    margin: 4.5vh 0vw 0vh 30.9vw;
+}

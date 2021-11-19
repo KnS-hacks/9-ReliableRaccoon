@@ -15,6 +15,11 @@ def boardlist(request) : #날짜별로 분류
     selected = board_model.objects.filter(write_day__range=[date, date])
     return render(request, "boardlist.html", {'selected':selected, 'date':date})
 
+def boardlist_emotion(request): #감정에 따른 분류
+    result_emotion = request.GET.get('emotion') # 행복, 쏘쏘, 우울
+    selected = board_model.objects.filter(result_emotion = result_emotion)
+    return render(request, "boardlist_emotion.html", {'selected': selected, 'emotion': result_emotion})
+
 
 def boardview(request, num) : #일기 보기
     # num = request.GET.get('num')

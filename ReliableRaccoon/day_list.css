@@ -1,144 +1,44 @@
 .dayList {
-    width: 160px;
-    height: 48px;
-    margin: 10px 245px 10.5px 10px;
+    position: absolute;
+    width: 10vw;
+    height: 10vh;
+    top: 2vh;
+    left: 1vw;
     -webkit-text-stroke: 1px #000;
     font-family: 'Nanum Myeongjo', serif;
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.23;
+    line-height: 1;
     letter-spacing: 5px;
     text-align: left;
     color: #000;
 }
 
 .line  {
-    width: 130px;
+    position: absolute;
+    width: 10vw;
     height: 0;
-    margin: 1px 10px 0px ;
+    top: 7vh;
+    left: 1vh;
     border: solid 1.5px #707070;
     background-color: #707070;
 }
 
 #list_button1 {
-    width: 890px;
-    height: 58px;
-    margin: 35px 55px 5px;
+    width: 63vw;
+    height: 7vh;
+    margin: 10vh 4.5vw 10px;
     border-radius: 15px;
     border: solid 1px #737c83;
     background-color: #ffefeb;
 }
 #list_button2 {
-    width: 890px;
-    height: 58px;
-    margin: 15px 55px 5px;
+    width: 63vw;
+    height: 7vh;
+    margin: 15px 4.5vw 10px;
     border-radius: 15px;
     border: solid 1px #737c83;
     background-color: #ffefeb;
-}
-
-main {
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #f29886;
-}
-body_ {
-    position:absolute;
-    width: 100%;
-    height: 665px;
-    left: 0%;
-    bottom: 0%;
-    background-color: white;
-}
-
-.navigation_bar_1 {
-    position:absolute;
-    width: 150px;
-    height: 600px;
-    right: 2%;
-    top: 4%;
-    background-color: #FBDBD5;
-}
-
-content {
-    position:absolute;
-    width: 1000px;
-    height: 600px;
-    top: 4%;
-    left: 15%;
-    border: solid 1px #707070;
-    background-color: #fff;
-}
-
-.navigaton_bar_2 {
-    position: absolute;
-    width: 150px;
-    height: 430px;
-    left: 2%;
-    top: 4%;
-    background-color: #FBDBD5;
-}
-
-.profile_circle  {
-    position:absolute;
-    width: 120px;
-    height: 120px;
-    top: 3%;
-    right: 9%;
-    border-radius: 100%;
-    border: solid 1px #707070;
-    background-color: #fff;
-}
-
-.profile  {
-    width: 80px;
-    height: 80px;
-    background-color: #707070;
-}
-
-.logo {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    left: 2%;
-    top: 70%;
-    border-radius: 17px;
-    border: solid 1px #707070;
-    background-image: url('./너굴맨.jpg');
-    background-position: center;
-    background-size: 200px 150px;
-}
-
-#search {
-    position:absolute;
-    width: 700px;
-    height: 40px;
-    top:3%;
-    left: 25%;
-    border-radius: 20px;
-    border: solid 1px #707070;
-    background-color: #fff;
-}
-
-.racoon {
-    width: 150px;
-    height: 73px;
-    margin: 0 96px 28px 50px;
-    -webkit-text-stroke: 1px #fff;
-    font-family: BMDoHyeon;
-    font-size: 20px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 2.45;
-    letter-spacing: normal;
-    text-align: left;
-    color: #fff;
-}
-  
-.racoon .text-style-1 {
-    font-size: 40px;
 }

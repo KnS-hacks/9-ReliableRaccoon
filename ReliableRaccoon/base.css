@@ -22,6 +22,29 @@ body_ {
     background-color: #FBDBD5;
 }
 
+.navigation_bar_1_box {
+    width: 8vw;
+    height: 50vh;
+    margin: 20vh 1vw 0 1vw;
+    border: solid 1px #707070;
+}
+
+.author {
+    width: 30vw;
+    height: 10vh;
+    margin: 1vh 0 0 0.3vw;
+    -webkit-text-stroke: 0px #fff;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.7vw;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
 .navigaton_bar_2 {
     position: absolute;
     width: 10vw;
@@ -29,6 +52,13 @@ body_ {
     left: 2vw;
     top: 3vh;
     background-color: #FBDBD5;
+}
+
+.navigation_bar_2_box {
+    width: 8vw;
+    height: 50vh;
+    margin: 3vh 1vw 0 1vw;
+    border: solid 1px #707070;
 }
 
 content {
