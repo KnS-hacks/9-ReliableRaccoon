@@ -85,12 +85,17 @@ def boardwrite(request) : #일기 작성
         new_writer.weather= request.POST['weather']
         user_pick = request.POST['emotion']
         new_writer.body = request.POST['body']
+        print(new_writer.body)
         if(user_pick != "자동"):
             new_writer.auto_pick = False
             new_writer.result_emotion = user_pick
         else :
             new_writer.auto_pick = True
-            sentences=new_writer.body.split('.')
+            try :
+                sentences = new_writer.body.split('.')
+            except ValueError :
+                print(new_writer.body)
+                sentences = new_writer.body
             new_writer.api_emotion_score = analyze_text(sentences, new_writer.id)
             new_writer.api_emotion = api_to_result(new_writer.api_emotion_score)
             new_writer.result_emotion = api_to_result(new_writer.api_emotion_score)
@@ -117,7 +122,10 @@ def boardrewrite(request, board_id) : #일기 수정
             re_writer.result_emotion = user_pick
         else :
             re_writer.auto_pick = True
-            sentences=re_writer.body.split('.')
+            try :
+                sentences=re_writer.body.split('.')
+            except :
+                sentences = re_writer.body
             re_writer.api_emotion_score=analyze_text(sentences, re_writer.id)
             re_writer.api_emotion =api_to_result(re_writer.api_emotion_score)
             re_writer.result_emotion =api_to_result(re_writer.api_emotion_score)
@@ -145,7 +153,8 @@ def boardDelete(request, board_id):
 def analyze_text(documents, board_id):
     endpoint = END_POINT
     key = SECRET_KEY
-    del documents[len(documents)-1]
+    if documents[len(documents)-1] == "":
+        del documents[len(documents)-1]
     text_analytics_client = TextAnalyticsClient(endpoint, AzureKeyCredential(key))
     results = text_analytics_client.analyze_sentiment(documents, language='ko')
     total_emotion_positive =0
