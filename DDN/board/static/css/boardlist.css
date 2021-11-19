@@ -39,6 +39,32 @@
     background-color: #ffefeb;
 }
 
+#write_button {
+    position:absolute;
+    width: 10vw;
+    height: 6vh;
+    top: 72vh;
+    right: 1.5vw;
+    border-radius: 0.5vw;
+    border: 0;
+    
+    background-color: #F8CBC2;
+}
+
+.text_write {
+    width: 10vw;
+    height: 10vh;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1vw;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}
+
 main {
     position:absolute;
     width: 99.3vw;
