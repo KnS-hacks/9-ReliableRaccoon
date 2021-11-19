@@ -20,6 +20,9 @@
         border-radius: 10px;
         padding-top: 10px;
         /*float: right;*/
+        display: flex;
+        padding-left: 20px;
+        margin-right: 10px;
     }
     .modify {
         margin-left: 750px;
@@ -88,20 +91,16 @@
                                             기분 : {{emotion}}
                                         </td>
                                         <div id="buttons">
-                                        <td>
                                             <a href="/board/boardrewrite/{{selected.id}}">
                                                 <div id="applybutton" type="button" class="modify">
                                                     수정하기
                                                 </div>
                                             </a>
-                                        </td>
-                                        <td>
                                             <a href="/board/boardDelete/{{selected.id}}">
                                                 <div id="applybutton" type="button">
                                                     삭제하기
                                                 </div>
                                             </a>
-                                        </td>
                                         </div>
                                     </tr>
                                 </table>
