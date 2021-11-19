@@ -14,7 +14,7 @@
     width: 67vw;
     height: 73vh;
     margin: 3vh 0 0 2.5vw;
-    border: solid 1px #707070;
+    /* border: solid 1px #707070; */
 }
 #postbody,#emotionbutton{
     font-family: 'IM_Hyemin-Regular';
@@ -39,7 +39,9 @@
     color: #000;
 }
 #buttons {
-    float: right;
+    display: flex;
+    justify-content:right;
+    align-items:baseline;
 }
 #emotionbutton {
     background-color: #2D43D4;
@@ -50,9 +52,12 @@
     height: 25px;
     border-radius: 10px;
     padding-top: 10px;
-    float: right;
-    margin-top: 20px;
-    margin-right: 50px;
+    /*float: right;*/
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 93%;
 }
 #flexdiv {
     margin-top: 40px;

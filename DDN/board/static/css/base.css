@@ -58,7 +58,7 @@ body_ {
     width: 8vw;
     height: 50vh;
     margin: 3vh 1vw 0 1vw;
-    border: solid 1px #707070;
+    /* border: solid 1px #707070; */
 }
 
 content {
@@ -84,11 +84,11 @@ content {
     left: 0;
     margin:auto;
     border-radius: 100%;
-    border: solid 1px #707070;
+    /* border: solid 1px #707070; */
     background-color: #fff;
-    background-image: url('/static/image/profile.jpg');
+    background-image: url('/static/image/profile.png');
     background-position: center;
-    background-size: 95px 95px;
+    background-size: 150px 150px;
   }
 
 .logo {
@@ -101,7 +101,7 @@ content {
     border: solid 1px #707070;
     background-image: url('/static/image/너굴맨.jpg');
     background-position: center;
-    background-size: 200px 150px;
+    background-size: 200px 180px;
 }
 
 #search {
@@ -121,12 +121,12 @@ content {
     position: absolute;
     width: 2vw;
     height: 4vh;
-    top: 4vh;
+    top: 3.5vh;
     right: 26vw;
     border: 0;
     background-image: url('/static/image/glasses.png');
     background-position: center;
-    background-size: 30px 30px;
+    background-size: 35px 35px;
     background-color: white;
 }
 
