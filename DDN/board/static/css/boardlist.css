@@ -157,7 +157,7 @@ content {
     overflow: auto;
 }
 
-.dayList {
+.boardList {
     position: absolute;
     width: 10vw;
     height: 10vh;
@@ -199,6 +199,19 @@ content {
     background-color: #F8CBC2;
 }
 
+.text_write_noList{
+    width: 10vw;
+    height: 10vh;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.5vw;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}
 
 .text_write {
     width: 10vw;

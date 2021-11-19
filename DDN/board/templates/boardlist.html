@@ -44,7 +44,11 @@
                         <button id="list_button2" href ="/board/boardview/{{board_data.id}}/" onclick = "location.href  = '/board/boardview/{{board_data.id}}/'" >
                             {{board_data.title}} <!---글 제목-->
                         </button> 
-                        <button id="write_button" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->                    
+                        <button id="write_button" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->    
+                            <span class="text_write">
+                                일기 작성하기
+                            </span>
+                        </button>                
                     </li>
                     {% endfor %}                
                 </ul>
@@ -54,13 +58,13 @@
                         일기가 없구리...
                     </span>        
                     <div class="line"></div>
-                    <button id="write_button2" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->
+                    <button id="write_button_noList" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->
                         <span class="text_write_noList">
                             일기 작성하기
                         </span>
                     </button>
                 {% endif %}
-                </content>  
+                </content>
                 <div class="logo"></div>
             </body_>
         </main>
