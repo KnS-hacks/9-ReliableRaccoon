@@ -45,6 +45,22 @@ body_ {
     border: solid 1px #707070;
 }
 
+.author {
+    width: 30vw;
+    height: 10vh;
+    margin: 1vh 0 0 0.3vw;
+    -webkit-text-stroke: 0px #fff;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.7vw;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
 content {
     position:absolute;
     width: 72vw;
