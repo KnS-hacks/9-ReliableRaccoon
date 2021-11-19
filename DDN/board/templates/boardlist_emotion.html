@@ -41,7 +41,7 @@
                     <ul>
                     {% for board_data in selected %}            
                     <li>
-                        <button id="list_button2" href ="/board/boardview/{{board_data.id}}/" onclick = "location.href  = '/board/boardview/{{board_data.id}}/'" >
+                        <button id="list_button2" href ="/boardview/{{board_data.id}}/" onclick = "location.href  = '/boardview/{{board_data.id}}/'" >
                             {{board_data.title}} {{board_data.result_emotion}}<!---글 제목-->
                         </button>                        
                     </li>
@@ -53,7 +53,7 @@
                         일기가 없구리...
                     </span>        
                     <div class="line"></div>
-                    <button id="write_button" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->
+                    <button id="write_button" href='/boardwrite/' onclick = "location.href  = '/boardwrite/'"><!--일기 작성 버튼-->
                         <span class="text_write">
                             일기 작성하기
                         </span>
