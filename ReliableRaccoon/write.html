@@ -49,6 +49,13 @@
                             <input type="radio" id="자동" name="emotion" value="자동"><label for="자동">자동</label>
                         </div>
                         <div class="tools"></div>
+                        <button type="button" id="paper1" onClick="paperChange()">1</button>
+                        <script>
+                            function paperChange() {
+                                var p=document.getElementById("paper1");
+                                p.style.backgroundImage="url('./linepaper.jpg')";
+                            }
+                        </script>
                     </div>
                     <div class="file_uploder">
                         <button id="file_uploader_button">파일 올리기</button>
@@ -61,8 +68,6 @@
                 </content> 
                 <div class="logo"></div>
             </body_>
-            
-        </main>
-        
+        </main> 
     </body>
 </html>
