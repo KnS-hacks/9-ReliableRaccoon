@@ -3,6 +3,7 @@ from django.utils import timezone  #글 작성시간을 자동으로 가져오�
 from .models import board_model #게시글 DB
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
+import random
 # pip install azure-ai-textanalytics==5.1.0 
 # azure 설치
 
@@ -50,7 +51,12 @@ def boardview(request, num) : #일기 보기
     return render(request, "boardview.html", {'selected':selected, 'emotion':emotion, 'weather':weather , 'image_url':image_url})
 
 
-def date_selecter_temp(request) : #날짜 선택 (임시확인) 
+def date_selecter_temp(request) : #날짜 선택 (임시확인)
+    recent_board = board_model.objects.order_by('-pk')
+    if len(recent_board) > 2 and suggest_board(recent_board[0].id) ==3:
+        high_emotion_board = list(board_model.objects.filter(result_emotion='행복'))
+        random_num = random.randrange(0,len(high_emotion_board))
+        return render(request, "date_selecter_temp.html", {'high_emotion_board':high_emotion_board[random_num].id})
     return render(request, "date_selecter_temp.html")
 
 
@@ -69,8 +75,9 @@ def boardwrite(request) : #일기 작성
         else :
             new_writer.auto_pick = True
             sentences=new_writer.body.split('.')
-            new_writer.api_emotion =analyze_text(sentences, new_writer.id)
-            new_writer.result_emotion =analyze_text(sentences, new_writer.id)
+            new_writer.api_emotion_score = analyze_text(sentences, new_writer.id)
+            new_writer.api_emotion = api_to_result(new_writer.api_emotion_score)
+            new_writer.result_emotion = api_to_result(new_writer.api_emotion_score)
         if request.FILES :
             new_writer.image = request.FILES['image']
         new_writer.views = 0
@@ -95,8 +102,9 @@ def boardrewrite(request, board_id) : #일기 수정
         else :
             re_writer.auto_pick = True
             sentences=re_writer.body.split('.')
-            re_writer.api_emotion =analyze_text(sentences, re_writer.id)
-            re_writer.result_emotion =analyze_text(sentences, re_writer.id)
+            re_writer.api_emotion_score=analyze_text(sentences, re_writer.id)
+            re_writer.api_emotion =api_to_result(re_writer.api_emotion_score)
+            re_writer.result_emotion =api_to_result(re_writer.api_emotion_score)
         if request.FILES :
             re_writer.image = request.FILES['image']
         re_writer.views = 0
@@ -116,7 +124,6 @@ def boardDelete(request, board_id):
 def analyze_text(documents, board_id):
     endpoint = END_POINT
     key = SECRET_KEY
-    today = board_model.objects.get(id = board_id)  
     del documents[len(documents)-1]
     text_analytics_client = TextAnalyticsClient(endpoint, AzureKeyCredential(key))
     results = text_analytics_client.analyze_sentiment(documents, language='ko')
@@ -168,9 +175,6 @@ def analyze_text(documents, board_id):
     total_emotion_negative = total_emotion_negative/len(results)
     total_emotion_neutral = total_emotion_neutral/len(results)
 
-    # print('오늘의 평균 긍정점수 :',total_emotion_positive)
-    # print('오늘의 평균 부정점수 :',total_emotion_negative)
-    # print('오늘의 평균 중립점수 :',total_emotion_neutral)
     total_emotion = (-total_emotion_negative if total_emotion_negative>total_emotion_positive or total_emotion_negative==total_emotion_positive else total_emotion_positive)
     # print(total_emotion)
     
@@ -180,6 +184,10 @@ def analyze_text(documents, board_id):
     else :
         total_emotion = total_emotion/(total_emotion_negative+total_emotion_positive)
     # print(total_emotion,'종합')
+    print(total_emotion)
+    return total_emotion
+    
+def api_to_result(total_emotion):
     # 오늘의 감정 분석 결과를 DB에 저장
     if total_emotion >0:
         total_emotion = '행복'
@@ -187,6 +195,17 @@ def analyze_text(documents, board_id):
         total_emotion = '우울'
     else:
         total_emotion = '쏘쏘'
-    print(total_emotion)
     return total_emotion
-    
+
+def suggest_board(board_id):
+    depress_count=0
+    for index in range(board_id-2, board_id+1):
+        today = board_model.objects.get(id = index)
+        try: 
+            if float(today.api_emotion_score) < 0 :
+                depress_count+=1
+        except TypeError:
+            if today.result_emotion =='우울':
+                depress_count+=1
+    return depress_count
+
