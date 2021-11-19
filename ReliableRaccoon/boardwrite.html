@@ -1,0 +1,98 @@
+
+<head>
+    <style>
+        #applybutton{
+            background-color: #2D43D4;
+            color: #fff;
+            font-size: 12px;
+            text-align: center;
+            width: 60px;
+            height: 25px;
+            border-radius: 10px;
+            padding-top: 10px;
+            /*float: right;*/
+        }
+        #listbutton {
+            background-color: #ffffff;
+            color: #2D43D4;
+            font-size: 12px;
+            text-align: center;
+            width: 60px;
+            height: 25px;
+            border-radius: 10px;
+            border: solid 1px #2D43D4;
+            padding-top: 10px;
+            /*float: right;*/
+            margin-left: 10px;
+        }
+    </style>
+
+    <script>
+        function check_input() {
+            if (!document.make_board.title.value)
+            {
+                alert("글 제목을 입력해주세요");
+                document.make_board.title.focus();
+                return;
+            }
+            document.make_board.submit();
+            window.onlocation.href = 'http://127.0.0.1:8000/board/boardlist/'
+         }
+      </script>
+</head>
+<div id="contents">
+    <div id="text_Title">글 작성 페이지🌞 🌤️ ⛈️ 🌨️ 😀 😰 😐</div>
+    <div id="Title_subline"></div>
+    <form name="make_board" id="make_board" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td style="color: #2D43D4; font-size:20px">제목 : </td>
+                <td><input type="text" name="title"></td>
+                <td>
+                    <div>
+                        <input type="radio" id="맑음" name="weather" value="맑음"checked><label for="맑음">🌞</label>
+                        <input type="radio" id="흐림" name="weather" value="흐림"><label for="흐림">🌤️</label>
+                        <input type="radio" id="비" name="weather" value="비"><label for="비">⛈️</label>
+                        <input type="radio" id="눈" name="weather" value="눈"><label for="눈">🌨️</label>
+                      </div>
+                </td>
+                <td> // </td>
+                <td>
+                    <div>
+                        <input type="radio" id="행복" name="emotion" value="행복"checked><label for="행복">😀</label>
+                        <input type="radio" id="우울" name="emotion" value="우울"><label for="우울">😰</label>
+                        <input type="radio" id="쏘쏘" name="emotion" value="쏘쏘"><label for="쏘쏘">😐</label>
+                        <input type="radio" id="자동" name="emotion" value="자동"><label for="자동">자동</label>
+                      </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    툴팁 사진
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #2D43D4; font-size:20px">내용 : </td>
+                <td><textarea name="body" cols="30" rows="20"></textarea></td>
+            </tr>
+            <tr>
+                <td style="color: #2D43D4; font-size:20px">첨부사진 : </td>
+                <td>
+                    <input type="file" name="image" >
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br><br>
+
+    <div id="button">
+        <div id="applybutton" type="button" onclick="check_input()">
+            저장
+        </div>
+        <div id="listbutton" type="button" onclick="history.back()">
+            취소
+        </div>
+    </div>
+    
+</div>
