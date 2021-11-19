@@ -172,28 +172,28 @@ content {
 
 .boardlist {
     position: absolute;
-    width: 35vw;
+    width: 20vw;
     height: 10vh;
     top: 2vh;
     left: 1vw;
     -webkit-text-stroke: 1px #000;
     font-family: 'Nanum Myeongjo', serif;
-    font-size: 2vw;
+    font-size: 30px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1;
     letter-spacing: 5px;
-    text-align: center;
+    text-align: left;
     color: #000;
 }
 
 #write_button{
-    position:absolute;
-    width: 10vw;
+    position:fixed;
+    width: 9vw;
     height: 6vh;
-    top: 72vh;
-    right: 1.5vw;
+    top: 88vh;
+    right: 16vw;
     border-radius: 0.5vw;
     border: 0;
     background-color: #F8CBC2;
@@ -203,15 +203,12 @@ content {
     position:absolute;
     width: 10vw;
     height: 7vh;
-<<<<<<< HEAD
     bottom:3vh;
     left: 0;
     right: 0;
-=======
     top: 10vh;
     left: 10px;
     right: 10;
->>>>>>> f17c8b4279d670271ac500a7de7e6ea156ea3f8e
     margin: auto;
     border-radius: 0.5vw;
     border: 0;
