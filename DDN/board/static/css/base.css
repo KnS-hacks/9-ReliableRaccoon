@@ -86,7 +86,7 @@ content {
     border-radius: 100%;
     border: solid 1px #707070;
     background-color: #fff;
-    background-image: url('/static/image/profile.png');
+    background-image: url('/static/image/profile.jpg');
     background-position: center;
     background-size: 95px 95px;
   }

@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'IM_Hyemin-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.diary_content{
+    width: 67vw;
+    height: 73vh;
+    margin: 3vh 0 0 2.5vw;
+    border: solid 1px #707070;
+}
+#postbody,#emotionbutton{
+    font-family: 'IM_Hyemin-Regular';
+    font-size: 17px;
+}
+#story,#weatherAndfeel{
+    font-family: 'IM_Hyemin-Bold';
+    font-size: 17px;
+}
+.boardlist {
+    width: 160px;
+    height: 48px;
+    margin: 10px 245px 10.5px 10px;
+    -webkit-text-stroke: 1px #000;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: 5px;
+    text-align: left;
+    color: #000;
+}
+#buttons {
+    float: right;
+}
+#emotionbutton {
+    background-color: #2D43D4;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    width: 60px;
+    height: 25px;
+    border-radius: 10px;
+    padding-top: 10px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+#flexdiv {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
