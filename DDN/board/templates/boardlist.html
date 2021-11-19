@@ -10,7 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-        <title>Document</title>
+        <title>Boardlist</title>
         <style>
             
         </style>
@@ -34,32 +34,40 @@
                     <div class="navigation_bar_2_box"></div>
                 </div>
                 {% if selected %}
-                <content id="overflow_content">
+                <content>
                     <span class="boardlist">
                         일기목록
                     </span>        
                     <div class="line"></div>
+                    <ul>
                     {% for board_data in selected %}            
-                    <li style="list-style: none;">
+                    <li style="list-style: none;">       
                         <button id="list_button2" href ="/board/boardview/{{board_data.id}}/" onclick = "location.href  = '/board/boardview/{{board_data.id}}/'" >
                             {{board_data.title}} <!---글 제목-->
-                        </button> 
+                        </button>
+                    </li>
+                    {% endfor %}
+                    <li style="list-style: none;">
                         <button id="write_button" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->    
                             <span class="text_write">
                                 일기 작성하기
                             </span>
-                        </button>                
-                    </li>
-                    {% endfor %}                
-                </ul>
+                        </button>         
+                    </li>               
+                    </ul>
                 {% else %}
                 <content>
                     <span class="boardlist">
                         일기가 없구리...
                     </span>        
                     <div class="line"></div>
+<<<<<<< HEAD
                     <button id="write_button" href='/board/boardwrite/' onclick = "location.href  = '/board/boardwrite/'"><!--일기 작성 버튼-->
                         <span class="text_write">
+=======
+                    <button id="write_button_noList" href='/boardwrite/' onclick = "location.href  = '/boardwrite/'"><!--일기 작성 버튼-->
+                        <span class="text_write_noList">
+>>>>>>> f17c8b4279d670271ac500a7de7e6ea156ea3f8e
                             일기 작성하기
                         </span>
                     </button>
