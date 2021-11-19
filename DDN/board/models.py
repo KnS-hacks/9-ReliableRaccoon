@@ -13,6 +13,8 @@ class board_model(models.Model):
 
     api_emotion = models.CharField(max_length=100,blank=True,null=True,) #api 원시 감정
 
+    api_emotion_score = models.CharField(max_length=100,blank=True,null=True,) #api 감정 점수
+
     result_emotion = models.CharField(max_length=100,blank=True,null=True,) #최종 감정
 
     auto_pick = models.BooleanField(blank=True,null=True,) #감정 자동 판단을 선택했는지 여부
