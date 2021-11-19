@@ -48,9 +48,8 @@
                             <input type="radio" id="쏘쏘" name="emotion" value="쏘쏘"><label for="쏘쏘">😐</label>
                             <input type="radio" id="자동" name="emotion" value="자동"><label for="자동">자동</label>
                         </div>
-                        <div class="tools"></div>
-                        <button type="button" onClick="paperChange1()">1</button>
-                        <button type="button" onClick="paperChange2()">2</button>
+                        <button type="button" id="paper1" onClick="paperChange1()">1</button>
+                        <button type="button" id="paper2" onClick="paperChange2()">2</button>
                         <script>
                             function paperChange1() {
                                 var p=document.getElementById("diary_content");

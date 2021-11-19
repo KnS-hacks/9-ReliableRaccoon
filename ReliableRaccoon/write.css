@@ -10,14 +10,6 @@
     background-color: #f29886;
 }
 
-.tools {
-    width: 70vw;
-    height: 5vh;
-    margin: 10px 3px 3px 10px;
-    border-radius: 13px;
-    border: solid 1px #707070;
-    background-color: #fff;
-}
 
 #title {
     width: 37vw;
@@ -38,6 +30,26 @@
     position: absolute;
     left: 55vw;
     top: 3vh;
+}
+
+#paper1{
+    position:absolute;
+    width: 2vw;
+    height: 4vh;
+    top: 9.5vh;
+    right: 13vw;
+    border-radius: 100%;
+    background-color: beige;
+}
+
+#paper2{
+    position:absolute;
+    width: 2vw;
+    height: 4vh;
+    top: 9.5vh;
+    right: 10vw;
+    border-radius: 100%;
+    background-color: white;
 }
 
 #diary_content {
