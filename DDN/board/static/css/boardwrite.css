@@ -68,3 +68,19 @@
     height: 4vh;
     margin: 4.5vh 0vw 0vh 30.9vw;
 }
+
+#listbutton{
+    width: 5vw;
+    height: 3vh;
+    border-radius: 0.5vw;
+    border: 0.2px #707070;
+    background-color: #F8CBC2;
+}
+
+#applybutton{
+    width: 5vw;
+    height: 3vh;
+    border-radius: 0.5vw;
+    border: 0.2px #707070;
+    background-color: #F8CBC2;
+}
