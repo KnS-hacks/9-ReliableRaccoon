@@ -22,5 +22,6 @@ urlpatterns = [
     path('boardDelete/<int:board_id>', boardDelete, name = "boardDelete"),
     path('boardrewrite/<int:board_id>/',boardrewrite, name = "boardrewrite"),
     path('boardview/<int:num>/', boardview, name = "boardview"),
-    path('date_selecter_temp/', date_selecter_temp, name = "date_selecter_temp"),    
+    path('date_selecter_temp/', date_selecter_temp, name = "date_selecter_temp"),
+    path('boardlist_emotion/', boardlist_emotion, name = "boardlist_emotion"),    
 ]
