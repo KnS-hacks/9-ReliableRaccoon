@@ -26,7 +26,7 @@ body_ {
     width: 8vw;
     height: 50vh;
     margin: 20vh 1vw 0 1vw;
-    border: solid 1px #707070;
+    border: 0px;
 }
 
 .author {
