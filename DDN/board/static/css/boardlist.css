@@ -171,11 +171,11 @@ content {
     font-style: normal;
     line-height: 1;
     letter-spacing: 5px;
-    text-align: left;
+    text-align: center;
     color: #000;
 }
 
-#write_button_noList {
+#write_button{
     position:absolute;
     width: 10vw;
     height: 6vh;
@@ -186,11 +186,11 @@ content {
     background-color: #F8CBC2;
 }
 
-#write_button {
+#write_button_noList  {
     position:absolute;
-    width: 20vw;
+    width: 10vw;
     height: 7vh;
-    top: 40vh;
+    bottom:3vh;
     left: 0;
     right: 0;
     margin: auto;
