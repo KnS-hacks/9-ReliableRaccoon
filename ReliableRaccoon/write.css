@@ -10,14 +10,6 @@
     background-color: #f29886;
 }
 
-.tools {
-    width: 70vw;
-    height: 5vh;
-    margin: 10px 3px 3px 10px;
-    border-radius: 13px;
-    border: solid 1px #707070;
-    background-color: #fff;
-}
 
 #title {
     width: 37vw;
@@ -40,11 +32,32 @@
     top: 3vh;
 }
 
+#paper1{
+    position:absolute;
+    width: 2vw;
+    height: 4vh;
+    top: 9.5vh;
+    right: 13vw;
+    border-radius: 100%;
+    background-color: beige;
+}
+
+#paper2{
+    position:absolute;
+    width: 2vw;
+    height: 4vh;
+    top: 9.5vh;
+    right: 10vw;
+    border-radius: 100%;
+    background-color: white;
+}
+
 #diary_content {
     width: 69.7vw;
-    height: 46vh;
-    margin: 18vh 1vw 20vh 1vw;
-    border: solid 1px #707070
+    height: 43vh;
+    margin: 18vh 1vw 0vh 1vw;
+    border: solid 0.2px #707070;
+    resize:none;
 }
 
 .buttons {
@@ -61,6 +74,22 @@
     margin:auto;
     border: solid 1px #707070;
     background-color: rgba(46, 46, 46, 0.15);
+}
+
+#delete{
+    width: 5vw;
+    height: 3vh;
+    border-radius: 0.5vw;
+    border: 0.2px #707070;
+    background-color: #F8CBC2;
+}
+
+#upload{
+    width: 5vw;
+    height: 3vh;
+    border-radius: 0.5vw;
+    border: 0.2px #707070;
+    background-color: #F8CBC2;
 }
 
 #file_uploader_button {

@@ -42,9 +42,10 @@
 
 #diary_content {
     width: 69.7vw;
-    height: 46vh;
-    margin: 18vh 1vw 20vh 1vw;
-    border: solid 1px #707070
+    height: 43vh;
+    margin: 18vh 1vw 0vh 1vw;
+    border: solid 1px #707070;
+    resize: none;
 }
 
 .buttons {
@@ -57,7 +58,7 @@
     height: 13vh;
     left:0;
     right: 0;
-    bottom: 0vh;
+    bottom: 0vh;    
     margin:auto;
     border: solid 1px #707070;
     background-color: rgba(46, 46, 46, 0.15);
@@ -67,4 +68,20 @@
     width: 10vw;
     height: 4vh;
     margin: 4.5vh 0vw 0vh 30.9vw;
+}
+
+#delete{
+    width: 5vw;
+    height: 3vh;
+    border-radius: 0.5vw;
+    border: 0.2px #707070;
+    background-color: #F8CBC2;
+}
+
+#update{
+    width: 5vw;
+    height: 3vh;
+    border-radius: 0.5vw;
+    border: 0.2px #707070;
+    background-color: #F8CBC2;
 }

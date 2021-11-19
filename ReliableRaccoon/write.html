@@ -48,12 +48,25 @@
                             <input type="radio" id="쏘쏘" name="emotion" value="쏘쏘"><label for="쏘쏘">😐</label>
                             <input type="radio" id="자동" name="emotion" value="자동"><label for="자동">자동</label>
                         </div>
-                        <div class="tools"></div>
+                        <button type="button" id="paper1" onClick="paperChange1()">1</button>
+                        <button type="button" id="paper2" onClick="paperChange2()">2</button>
+                        <script>
+                            function paperChange1() {
+                                var p=document.getElementById("diary_content");
+                                p.style.backgroundImage="url('./linepaper.jpg')";
+                                p.style.backgroundSize="70vw 90vh";
+                            }
+                            function paperChange2() {
+                                var p=document.getElementById("diary_content");
+                                p.style.backgroundImage="url('./whitepaper.jpg')";
+                                p.style.backgroundSize="45vw 127vh";
+                            }
+                        </script>
                     </div>
                     <div class="file_uploder">
                         <button id="file_uploader_button">파일 올리기</button>
-                    </div> 
-                    <textarea id="diary_content" name="diary_content" cols="40" rows="50"></textarea>
+                    </div>
+                    <textarea id="diary_content" name="diary_content" cols="40" rows="50" style="font-size: 1.5vw;"></textarea>
                     <div class="buttons">
                         <button id="delete">삭제하기</button>
                         <button id="upload">게시하기</button>
@@ -61,8 +74,6 @@
                 </content> 
                 <div class="logo"></div>
             </body_>
-            
-        </main>
-        
+        </main> 
     </body>
 </html>
