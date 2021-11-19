@@ -22,6 +22,13 @@ body_ {
     background-color: #FBDBD5;
 }
 
+.navigation_bar_1_box {
+    width: 8vw;
+    height: 50vh;
+    margin: 20vh 1vw 0 1vw;
+    border: solid 1px #707070;
+}
+
 .navigaton_bar_2 {
     position: absolute;
     width: 10vw;
@@ -29,6 +36,13 @@ body_ {
     left: 2vw;
     top: 3vh;
     background-color: #FBDBD5;
+}
+
+.navigation_bar_2_box {
+    width: 8vw;
+    height: 50vh;
+    margin: 3vh 1vw 0 1vw;
+    border: solid 1px #707070;
 }
 
 content {
