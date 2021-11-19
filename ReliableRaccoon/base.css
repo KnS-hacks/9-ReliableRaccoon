@@ -1,0 +1,152 @@
+main {
+    position:absolute;
+    width: 99.3vw;
+    height: 98vh;
+    background-color: #f29886;
+}
+body_ {
+    position:absolute;
+    width: 99.3vw;
+    height: 87vh;
+    left: 0%;
+    bottom: 0%;
+    background-color: white;
+}
+
+.navigation_bar_1 {
+    position:absolute;
+    width: 10vw;
+    height: 80vh;
+    right: 2vw;
+    top: 3vh;
+    background-color: #FBDBD5;
+}
+
+.navigation_bar_1_box {
+    width: 8vw;
+    height: 50vh;
+    margin: 20vh 1vw 0 1vw;
+    border: solid 1px #707070;
+}
+
+.author {
+    width: 30vw;
+    height: 10vh;
+    margin: 1vh 0 0 0.3vw;
+    -webkit-text-stroke: 0px #fff;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.7vw;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.navigaton_bar_2 {
+    position: absolute;
+    width: 10vw;
+    height: 61vh;
+    left: 2vw;
+    top: 3vh;
+    background-color: #FBDBD5;
+}
+
+.navigation_bar_2_box {
+    width: 8vw;
+    height: 50vh;
+    margin: 3vh 1vw 0 1vw;
+    border: solid 1px #707070;
+}
+
+content {
+    position:absolute;
+    width: 72vw;
+    height: 80vh;
+    top: 3vh;
+    left: 0;
+    right: 0;
+    margin:auto;
+    border: solid 1px #707070;
+    background-color: #fff;
+}
+
+
+
+.profile_circle  {
+    position:absolute;
+    width: 8.3vw;
+    height: 15vh;
+    top: 3vh;
+    right: 0;
+    left: 0;
+    margin:auto;
+    border-radius: 100%;
+    border: solid 1px #707070;
+    background-color: #fff;
+    background-image: url('./profile.png');
+    background-position: center;
+    background-size: 95px 95px;
+  }
+
+.logo {
+    position: absolute;
+    width: 10vw;
+    height: 17vh;
+    left: 2vw;
+    bottom: 4vh;
+    border-radius: 17px;
+    border: solid 1px #707070;
+    background-image: url('./너굴맨.jpg');
+    background-position: center;
+    background-size: 200px 150px;
+}
+
+#search {
+    position:absolute;
+    width: 50vw;
+    height: 5vh;
+    top:3vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 20px;
+    border: solid 1px #707070;
+    background-color: #fff;
+}
+
+#search_button{
+    position: absolute;
+    width: 2vw;
+    height: 4vh;
+    top: 4vh;
+    right: 26vw;
+    border: 0;
+    background-image: url('./glasses.png');
+    background-position: center;
+    background-size: 30px 30px;
+    background-color: white;
+}
+
+.racoon {
+    width: 30vw;
+    height: 10vh;
+    margin: 0 96px 50px 50px;
+    -webkit-text-stroke: 0px #fff;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+  }
+  
+.racoon .text-style-1 {
+    font-size: 50px;
+    font-family: 'Black Han Sans', sans-serif;
+}
